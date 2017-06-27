@@ -1,0 +1,17 @@
+{
+    "name": "xb/database",
+    "description": "xbsoft database",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "enze",
+            "email": "enzewei@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+	"autoload" : {
+		"psr-4" : {
+			"xb\\db\\" : "src/"
+		}
+	}
+}

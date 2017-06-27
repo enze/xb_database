@@ -5,8 +5,9 @@
  * 2015.4.8 11:21
  * @author enze.wei <[enzewei@gmail.com]>
  */
+namespace xb\db\base;
 
-abstract class AbstractBuild {
+abstract class Build {
 
 	/*
 	 * 数据库类型，默认mysql
