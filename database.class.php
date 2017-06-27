@@ -7,13 +7,16 @@
  * @modify 2015.4.7 13:46  refactor
  * @author enze.wei <[enzewei@gmail.com]>
  */
+namespace xb\database;
 
-class DB implements InterFaceDB {
+use xb\database\Db as InterfaceDb;
+
+class Db implements InterfaceDb {
 
 	/*
 	 * 单例对象
 	 */
-	static private $_dbObj = array();
+	static private $_dbObj = [];
 
 	private $_selectQuery = null;
 	private $_updateQuery = null;
@@ -23,32 +26,32 @@ class DB implements InterFaceDB {
 	/*
 	 * 数据库拆分实例化对象
 	 */
-	private $_sharding = array();
+	private $_sharding = [];
 
 	/*
 	 * 连接数据库实例化对象
 	 */
-	private $_connection = array();
+	private $_connection = [];
 
 	/*
 	 * 连接数据库对象 PDO对象
 	 */
-	private $_conn = array();
+	private $_conn = [];
 
 	/*
 	 * PDOStatement对象
 	 */
-	private $_xbPdo = array();
+	private $_xbPdo = [];
 
 	/*
 	 * 数据库Query实例化对象
 	 */
-	private $_queryDb = array();
+	private $_queryDb = [];
 
 	/*
 	 * 数据库配置数组
 	 */
-	private $_dbInfo = array();
+	private $_dbInfo = [];
 
 	/*
 	 * 拆分前dbname
