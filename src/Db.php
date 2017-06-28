@@ -11,6 +11,8 @@ namespace xb\db;
 
 use xb\db\base\Db as InterfaceDb;
 
+use xb\db\Query as QueryDb;
+
 class Db implements InterfaceDb {
 
 	/*
@@ -89,8 +91,10 @@ class Db implements InterfaceDb {
 	 * 
 	 * @param string $dbType 默认mysql
 	 */
-	private function __construct($dbType = 'mysql') {
+	public function __construct($dbName, $config = [], $dbType = 'mysql') {
 		$this->_dbType = $dbType;
+		$this->changeDb($dbName);
+		$this->_dbInfo[$this->_dbName] = $config;
 	}
 
 	/**
@@ -100,7 +104,7 @@ class Db implements InterfaceDb {
 	 * @param  string $dbType 默认mysql
 	 * @return object
 	 */
-	static public function instance($dbName, $dbType = 'mysql') {
+	static public function instance($dbName, $dbType = 'mysql', $config = []) {
 		if (false === isset(self::$_dbObj[$dbName])) {
 			self::$_dbObj[$dbName] = new self($dbType);
 		}
@@ -122,7 +126,7 @@ class Db implements InterfaceDb {
 		 * 实例化拆分数据库类
 		 */
 		if (false === isset($this->_sharding[$this->_dbName])) {
-			$this->_dbInfo[$this->_dbName] = Loader::loadConfig('database.' . $this->_dbType . '.' . $this->_dbName);
+			//$this->_dbInfo[$this->_dbName] = Loader::loadConfig('database.' . $this->_dbType . '.' . $this->_dbName);
 			$this->_sharding[$this->_dbName] = new Sharding($this->_dbInfo[$this->_dbName]);
 		}
 		/*
@@ -690,5 +694,17 @@ class Db implements InterfaceDb {
 	public function rollbackXA($uniqid) {
 		$this->_endXA($uniqid);
 		return $this->_rollbackXA($uniqid);
+	}
+	
+	/******************* 设置配置文件 **********************/
+	
+	public function __get($name) {
+		return $this->_dbInfo[$name];
+	}
+	
+	public function __set($name, $value) {
+		if (true === array_key_exists($name, $this->_dbInfo)) {
+			$this->_dbInfo[$name] = $value;
+		}
 	}
 }

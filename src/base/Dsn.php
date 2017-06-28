@@ -7,6 +7,8 @@
  */
 namespace xb\db\base;
 
+use xb\db\command\Mysql as MysqlCommand;
+
 abstract class Dsn {
 
 	const DATABASE_SEPARATOR = '_';

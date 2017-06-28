@@ -9,6 +9,8 @@
  */
 namespace xb\db;
 
+use \Exception;
+
 class Sharding {
 
 	/*
@@ -139,13 +141,13 @@ class Sharding {
 
 	protected function _getTableName($dbName, $tblName, $split) {
 		if (true === empty ($dbName)) {
-			throw new DatabaseException('-5000001');
+			throw new Exception('-5000001');
 		}
 		if (true === empty ($tblName)) {
-			throw new DatabaseException('-5000002');
+			throw new Exception('-5000002');
 		}
 		if (true === empty ($split)) {
-			throw new DatabaseException('-5000005');
+			throw new Exception('-5000005');
 		}
 
 		$this->_changeDb($dbName, $split);
