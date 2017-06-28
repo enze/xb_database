@@ -1,0 +1,51 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "dc0aef6225f38a8fab0c31b9c6cbb843",
+    "packages": [
+        {
+            "name": "xb/base",
+            "version": "1.0.2-stable",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/enze/xb.git",
+                "reference": "293b29457ca2cb5409307cb5b9d545a1054c2ec9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/enze/xb/293b29457ca2cb5409307cb5b9d545a1054c2ec9.zip",
+                "reference": "293b29457ca2cb5409307cb5b9d545a1054c2ec9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xb\\": "vendor/xb/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "enze.wei",
+                    "email": "enzewei@gmail.com"
+                }
+            ],
+            "description": "base package of xbsoft",
+            "time": "2017-03-25T16:11:29+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
